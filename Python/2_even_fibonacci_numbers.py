@@ -1,17 +1,15 @@
 # Problem 2
 def even_fibonacci(n):
-	terms = []
-	even_terms = []
 	a = 0
 	b = 1
+	c = 0
+	terms_sum = 0
 	for i in range(2, n + 1):
-		c = a + b
-		a, b = b, c
-		if c <=4000000:
-			terms.append(c)
-	for x in terms:
-		if x%2 == 0:
-			even_terms.append(x)
-	return sum(even_terms)
+		while c <= 4000000:
+			c = a + b
+			if c%2 == 0:
+				terms_sum = terms_sum + c
+			a, b = b, c
+	return terms_sum
 
 print even_fibonacci(1000)	
