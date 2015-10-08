@@ -10,8 +10,8 @@ def largest_palindrome():
 	while x>=100:
 		for i in xrange(100,y+1):
 			z=x*i
-			if if_palindrome(z):
-				max_product = max(max_product, z)
+			if if_palindrome(z) and z > max_product:
+				max_product = z
 		x=x-1		
 	return max_product
 
