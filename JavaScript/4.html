@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 4</title>
+</head>
+<body>
+	<span id="result"></span>
+	<script>
+		var isPalindrome = function (n) {
+			s = n.toString();
+			if (s == s.split("").reverse().join("")) {
+				return true;
+			} else {
+				return false;
+			};
+		};
+
+		var largestPalindrome = function () {
+			var result = document.getElementById("result");
+			var x = 999;
+			var y = 999;
+			var max_product = 0;
+			while (x >= x/2) {
+				for (i = y; i >= 100; i--) {
+					var z = x * i;
+					if (isPalindrome(z) && z > max_product) {
+						max_product = z;
+					};
+				};
+				x--;
+			};
+			result.innerHTML = max_product;
+		};
+		largestPalindrome();
+	</script>
+</body>
