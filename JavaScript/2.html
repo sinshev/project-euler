@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 2</title>
+</head>
+<body>
+	<span id="result"></span>
+	<script>
+		 var evenFibonacci = function (n) {
+		 	var result = document.getElementById("result");
+		 	var termsSum = 0;
+		 	var a = 0;
+		 	var b = 1;
+		 	var c = 0;
+		 	while (c < n) {
+		 		c = a + b;
+				if (c%2 === 0) {
+					termsSum += c;
+				}
+				a = b;
+				b = c;
+		 	}
+		 	result.innerHTML = termsSum;
+		 };
+		 evenFibonacci(4000000);
+	</script>
+</body>

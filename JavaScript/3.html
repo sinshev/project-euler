@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 3</title>
+</head>
+<body>
+	<span id="result"></span>
+	<script>
+		 var primeFactor = function (n) {
+		 	var result = document.getElementById("result");
+		 	var i = 2;
+		 	while (i * i < n) {
+		 		while (n % i == 0) {
+		 			n = n / i;
+		 		}
+		 		i++;
+		 	}
+		 	result.innerHTML = n;
+		 };
+		 primeFactor(600851475143);
+	</script>
+</body>
