@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 5</title>
+</head>
+<body>
+	<span id="result"></span>
+	<script>
+		var primeFactors = function (n) {
+			var i = 2; 
+    		var factors = [];
+    		while (i * i <= n){
+		        if (n % i != 0) {
+		            i += 1;
+		        } else {
+			        n /= i;
+			        factors.push(i);
+			    };
+			};
+		    if (n > 1) {
+		        factors.push(n);
+		    };
+		    return factors;
+		};
+
+		var countElements = function (array, element) {
+			var count = 0;
+			for (var k = 0; k <= array.length; k++) {
+		    	if (array[k] == element) {
+		        	count++;
+		    	};
+		    };
+		    return count;
+		};
+
+		var findSmallestMultiple = function (n) {
+			var result = document.getElementById("result");
+			var factors = [];
+			for (var j = 1; j <= n+1; j++) {
+				factors.push(primeFactors(j));
+			};
+			var primes = {};
+			for (var item in factors) {
+				for (var i in item) {
+					count = countElements(item, i)
+					if (i in primes) {
+						if (primes[i] < count) {
+							primes[i] = count;
+						};
+					} else {
+						primes[i] = 1;
+					};
+				};
+			};
+			var smallestMultiple = 1;
+			for (var key in primes) {
+				smallestMultiple *= Math.pow(key, primes[key]);
+			};
+			result.innerHTML = smallestMultiple;
+		};
+		findSmallestMultiple(20);
+	</script>
+</body>
