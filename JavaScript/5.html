@@ -7,7 +7,7 @@
 	<span id="result"></span>
 	<script>
 		var primeFactors = function (n) {
-			var i = 2; 
+			var i = 2;
     		var factors = [];
     		while (i * i <= n){
 		        if (n % i != 0) {
@@ -36,19 +36,19 @@
 		var findSmallestMultiple = function (n) {
 			var result = document.getElementById("result");
 			var factors = [];
-			for (var j = 1; j <= n+1; j++) {
+			for (var j = 1; j <= n; j++) {
 				factors.push(primeFactors(j));
 			};
 			var primes = {};
 			for (var item in factors) {
-				for (var i in item) {
-					count = countElements(item, i)
-					if (i in primes) {
-						if (primes[i] < count) {
-							primes[i] = count;
+				for (var i in factors[item]) {
+					count = countElements(factors[item], factors[item][i])
+					if (factors[item][i] in primes) {
+						if (primes[factors[item][i]] < count) {
+							primes[factors[item][i]] = count;
 						};
 					} else {
-						primes[i] = 1;
+						primes[factors[item][i]] = 1;
 					};
 				};
 			};
@@ -58,6 +58,6 @@
 			};
 			result.innerHTML = smallestMultiple;
 		};
-		findSmallestMultiple(20);
+		findSmallestMultiple(10);
 	</script>
 </body>
