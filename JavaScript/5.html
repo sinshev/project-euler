@@ -10,7 +10,7 @@
 			var i = 2;
     		var factors = [];
     		while (i * i <= n){
-		        if (n % i != 0) {
+		        if (n % i !== 0) {
 		            i += 1;
 		        } else {
 			        n /= i;
@@ -19,13 +19,13 @@
 			};
 		    if (n > 1) {
 		        factors.push(n);
-		    };
+		    }
 		    return factors;
 		};
 
 		var countElements = function (array, element) {
 			var count = 0;
-			for (var k = 0; k <= array.length; k++) {
+			for (var k = 0; k <= array.length-1; k++) {
 		    	if (array[k] == element) {
 		        	count++;
 		    	};
@@ -40,9 +40,9 @@
 				factors.push(primeFactors(j));
 			};
 			var primes = {};
-			for (var item in factors) {
-				for (var i in factors[item]) {
-					count = countElements(factors[item], factors[item][i])
+			for (var item = 0; item <= factors.length-1; item++) {
+				for (var i = 0; i <= factors[item].length-1; i++) {
+					var count = countElements(factors[item], factors[item][i])
 					if (factors[item][i] in primes) {
 						if (primes[factors[item][i]] < count) {
 							primes[factors[item][i]] = count;

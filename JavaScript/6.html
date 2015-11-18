@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 6</title>
+</head>
+<body>
+	<span id="result"></span>
+	<script>
+		function findDifference(n) {
+			var result = document.getElementById("result");
+			var numbers = [];
+
+			for (var i = 1; i <= n; i++) {
+				numbers.push(i);
+			}
+
+			var sumNumbers = 0, sumSquares = 0;
+
+			for (i in numbers) {
+				sumNumbers += numbers[i];
+				sumSquares += Math.pow(numbers[i], 2);
+			}
+
+			sumNumbers = Math.pow(sumNumbers, 2);
+
+			difference = sumNumbers - sumSquares;
+			result.innerHTML = difference;
+		}
+
+		findDifference(100)
+	</script>
+</body>
